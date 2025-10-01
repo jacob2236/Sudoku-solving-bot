@@ -5,7 +5,7 @@ using namespace std;
 
 
 int main() {
-    Sudokuboard board;
+    SudokuBoard board;
     int row, column, num;
     char answer;
     
@@ -102,7 +102,7 @@ int main() {
 
     //tests valid function
     board.print();
-    if (board.checkvalid()) {
+    if (board.checkValid()) {
         cout << "valid";
     }
     else {

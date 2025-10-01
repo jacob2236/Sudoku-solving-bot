@@ -1,11 +1,12 @@
 #include <iostream>
+#include <functional>
 using namespace std;
 
-class Sudokuboard {
+class SudokuBoard {
 
-    //board in double array form
+    //board in double array form. Row major order
     public:
-        int b[9][9];
+        int board[9][9];
 
     //prints board
     void print() {
@@ -17,21 +18,21 @@ class Sudokuboard {
                 if ((j)%3 == 0 && j != 0) {
                     cout << "|";
                 }
-                    cout << " " << b[i][j] << " ";
+                    cout << " " << board[i][j] << " ";
             }
             cout << endl;
         }
     }
 
     //checks validity of board
-    bool checkvalid() {
+    bool checkValid() {
         int checks[9];
         int temp;
         // checks rows for 0s or duplicates
         for (int i=0;i<9;i++) {
             std::fill_n(checks,9, 0);
             for (int j=0;j<9;j++) {
-                temp = b[i][j];
+                temp = board[i][j];
                 if (temp == 0) {
                     return false;
                 }
@@ -47,7 +48,7 @@ class Sudokuboard {
         for (int i=0;i<9;i++) {
             std::fill_n(checks,9, 0);
             for (int j=0;j<9;j++) {
-                temp = b[j][i];
+                temp = board[j][i];
                 if (checks[temp - 1] == temp) {
                     return false;
                 }
@@ -62,7 +63,7 @@ class Sudokuboard {
             //checks vertical squares
             for (int j=i*3;j<(i+1)*3;j++) {
                 for (int n=0;n<3;n++) {
-                    temp = b[j][n];
+                    temp = board[j][n];
                     if (checks[temp - 1] == temp) {
                     return false;
                     }
@@ -73,7 +74,7 @@ class Sudokuboard {
             std::fill_n(checks,9,0);
             for (int j=i*3;j<(i+1)*3;j++) {
                 for (int n=3;n<6;n++) {
-                    temp = b[n][j];
+                    temp = board[n][j];
                     if (checks[temp - 1] == temp) {
                     return false;
                     }
@@ -84,7 +85,7 @@ class Sudokuboard {
             std::fill_n(checks,9,0);
             for (int j=i*3;j<(i+1)*3;j++) {
                 for (int n=6;n<9;n++) {
-                    temp = b[j][n];
+                    temp = board[j][n];
                     if (checks[temp - 1] == temp) {
                     return false;
                     }
@@ -97,11 +98,62 @@ class Sudokuboard {
 
     //adds numbers to cells in the board
     void add(int row,int column, int num) {
-        b[row][column] = num;
+        board[row][column] = num;
     }
 
     //deletes numbers from cells in the board
     void del(int row,int column) {
-        b[row][column] = 0;
+        board[row][column] = 0;
     }
+
+    /* Ok. So. C++ doesn't like returning arrays, which means I can't do the original methodology for the forEach functions
+     Originally they'd return an array of the return values of each function call (in the case of forEachCell a 9x9 array).
+     Now, I'm going to be lazy and expect any function passed in to be void and to handle it's "returning" through side effects.
+     This is, frankly, terrible programming. Relying on side-effects is never good, but the best part of bad programming is it still works.
+     I just have to trust neither of us does something even dumber with this.
+     */
+    void forEachCell(function<void(int)> func) {
+        for(int row = 0; row < 9; row++) {
+            for(int col = 0; col < 9; col++) {
+                func(board[row][col]);
+            }
+        }
+    }
+
+    void forEachRow(function<void(int[9])> func) {
+        for(int row = 0; row < 9; row++){
+            func(board[row]);
+        }
+    }
+
+    void forEachCol(function<void(int[9])> func) {
+        for(int col = 0; col < 9; col++) {
+            int column[9];
+            // for parity/consistency, make each column its own array to pass
+            for(int row = 0; row < 9; row++) {
+                column[row] = board[row][col];
+            }
+            func(column);
+        }
+    }
+
+    void forEachGroup(function<void(int[9])> func) {
+        for(int top = 0; top < 9; top += 3){
+            for(int left = 0; left < 9; left += 3){
+                // Collapse each group into a nine-item array reading left to right top to bottom
+                int group[9];
+                int index = 0;
+                for(int row; row < 3; row++) {
+                    for(int col; col < 3; col++) {
+                        group[index] = board[top+row][left+col];
+                        index++;
+                    }
+                }
+                func(group);
+            }
+        }
+    }
+
+
+
 };
