@@ -7,6 +7,23 @@ class SudokuBoard {
     //board in double array form. Row major order
     public:
         int board[9][9];
+        int ascii0 = '0'; // integer value of the ascii character 0. Useful for converting the ascii digits to int digits
+        SudokuBoard(string boardString){ //takes an 81 char string representing the board. '.' represents an empty space
+            auto nextChar = boardString.begin(); // make an iterator to pass through the string representation of the board
+            for(int row = 0; row < 9; row++) {
+                for(int col = 0; col < 9; col++) {
+                    if(*nextChar == '.') {
+                        board[row][col] = 0;
+                    } else{
+                        board[row][col] = *nextChar - ascii0; // subtract
+                    }
+                    nextChar++;
+
+                    
+                }
+            }
+        }
+        SudokuBoard(){} //no arg constructor to let the current test file continue working but I think I'd rather make things more explicit later
 
     //prints board
     void print() {
