@@ -123,6 +123,10 @@ class SudokuBoard {
         board[row][column] = 0;
     }
 
+    int get(int row, int col){
+        return board[row][col];
+    }
+
     /* Ok. So. C++ doesn't like returning arrays, which means I can't do the original methodology for the forEach functions
      Originally they'd return an array of the return values of each function call (in the case of forEachCell a 9x9 array).
      Now, I'm going to be lazy and expect any function passed in to be void and to handle it's "returning" through side effects.
