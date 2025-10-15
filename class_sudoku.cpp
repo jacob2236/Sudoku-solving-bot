@@ -1,6 +1,7 @@
 #include <iostream>
 #include <functional>
 using namespace std;
+#pragma once
 
 class SudokuBoard {
 
