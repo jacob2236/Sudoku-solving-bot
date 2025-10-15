@@ -1,6 +1,7 @@
 #include <iostream>
-#include "class_sudoku.h"
+#include "class_sudoku.cpp"
 #include "board_loader.cpp"
+#include "brute_force.cpp"
 using namespace std;
 
 

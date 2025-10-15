@@ -1,4 +1,4 @@
-#include "class_sudoku.cpp"
+#include "class_sudoku.h"
 #include <fstream>
 
 /* Code to read boards from a given dataset and turn them into SudokuBoard objects
