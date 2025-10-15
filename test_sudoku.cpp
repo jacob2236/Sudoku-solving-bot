@@ -7,12 +7,15 @@ using namespace std;
 
 
 int main() {
-    srand(600); // set the seed
+    srand(6); // set the seed
     SudokuBoard board = getRandomBoard();
     
     //tests valid function
     board.print();
-    if (board.checkValid()) {
+    cout << "solving...\n";
+    SudokuBoard solvedBoard = bruteForce(board);
+    solvedBoard.print();
+    if (solvedBoard.checkValid()) {
         cout << "valid\n";
     }
     else {
@@ -24,7 +27,10 @@ int main() {
     
     //tests valid function
     board.print();
-    if (board.checkValid()) {
+    cout << "solving...\n";
+    solvedBoard = bruteForce(board);
+    solvedBoard.print();
+    if (solvedBoard.checkValid()) {
         cout << "valid\n";
     }
     else {
@@ -35,7 +41,10 @@ int main() {
     
     //tests valid function
     board.print();
-    if (board.checkValid()) {
+    cout << "solving...\n";
+    solvedBoard = bruteForce(board);
+    solvedBoard.print();
+    if (solvedBoard.checkValid()) {
         cout << "valid\n";
     }
     else {
