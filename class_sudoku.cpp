@@ -113,6 +113,35 @@ class SudokuBoard {
         return true;
     }
 
+    bool checkValidCell(int row, int col) {
+        // check if a specific cell has any duplicates/is valid in its position
+        int cellValue = board[row][col];
+        if (cellValue == 0) {
+            return false; // an unfilled cell is not valid
+        }
+
+        for(int i = 0; i < 9; i++) {
+            if(i != col && board[row][i] == cellValue) {
+                return false; //another instance of the cell's value in the row
+            }
+            if(i != row && board[i][col] == cellValue) {
+                return false; //another instance in the col
+            }
+
+        }
+        int top = (row / 3) * 3; //get the top left corner of the group the cell is in
+        int left = (col / 3) * 3;
+        for(int y = 0; y < 3; y++) {
+            for(int x = 0; x < 3; x++) {
+                if(row != top + y && col != left + x && board[top + y][left + x] == cellValue) {
+                    return false;
+                }
+            }
+        }
+        return true;
+
+    }
+
     //adds numbers to cells in the board
     void add(int row,int column, int num) {
         board[row][column] = num;
