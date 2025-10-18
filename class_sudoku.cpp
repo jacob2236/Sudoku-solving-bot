@@ -42,7 +42,7 @@ class SudokuBoard {
         }
     }
 
-    //checks validity of board
+    //checks validity of board and assigns fitness value to board
     bool checkValid() {
         int checks[9];
         int temp;
