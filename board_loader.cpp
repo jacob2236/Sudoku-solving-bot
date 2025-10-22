@@ -16,7 +16,7 @@ SudokuBoard getSpecificBoard(int index){
     if(index != 0) {
         index -= 1; // due to oddities with the reading system it actually reads the index+1-th line. This makes sure we don't go out of bounds
     }
-    fileReader.seekg(82*index); //magic number 82 because each line is 82 chars long including linebreak
+    fileReader.seekg(82*index); //magic number 82 because each line is 82 chars long including linebreak; 83 for jacob
     char boardString[81]; // string to be a destination for getline
     fileReader.getline(boardString, 82); //stops on the 82nd character (IE linebreak)
     fileReader.close();
@@ -37,7 +37,7 @@ SudokuBoard getSpecific17Board(int index) {
     if(index != 0) {
         index -= 1; 
     }
-    fileReader.seekg(82*index); //magic number 82 because each line is 82 chars long including linebreak
+    fileReader.seekg(82*index); //magic number 82 because each line is 82 chars long including linebreak; 83 for jacob
     char boardString[81]; // string to be a destination for getline
     fileReader.getline(boardString, 82); //stops on the 82nd character (IE linebreak)
     fileReader.close();
@@ -56,7 +56,7 @@ SudokuBoard getSpecificHardBoard(int index){
     if(index != 0) {
         index -= 1; // There's some lines of text with sources at the top
     }
-    fileReader.seekg(82*index); //magic number 82 because each line is 82 chars long including linebreak
+    fileReader.seekg(82*index); //magic number 82 because each line is 82 chars long including linebreak; 83 for jacob
     char boardString[81]; // string to be a destination for getline
     fileReader.getline(boardString, 82); //stops on the 82nd character (IE linebreak)
     fileReader.close();
