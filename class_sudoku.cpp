@@ -24,7 +24,14 @@ class SudokuBoard {
                 }
             }
         }
-        SudokuBoard(){} //no arg constructor to let the current test file continue working but I think I'd rather make things more explicit later
+        SudokuBoard(const SudokuBoard& copiedBoard){ // copy constructor :3
+            for(int row = 0; row < 9; row++) {
+                for(int col = 0; col < 9; col++) {
+                    board[row][col] = copiedBoard.board[row][col];
+                }
+            }
+        } 
+        SudokuBoard(){}
 
     //prints board
     void print() {
@@ -40,6 +47,10 @@ class SudokuBoard {
             }
             cout << endl;
         }
+    }
+
+    SudokuBoard copy() {
+
     }
 
     //checks validity of board
