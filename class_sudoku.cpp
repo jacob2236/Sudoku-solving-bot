@@ -8,6 +8,7 @@ class SudokuBoard {
     //board in double array form. Row major order
     public:
         int board[9][9];
+        int fitness = 0;
         int ascii0 = '0'; // integer value of the ascii character 0. Useful for converting the ascii digits to int digits
         SudokuBoard(string boardString){ //takes an 81 char string representing the board. '.' represents an empty space
             auto nextChar = boardString.begin(); // make an iterator to pass through the string representation of the board
@@ -49,23 +50,28 @@ class SudokuBoard {
         }
     }
 
-    //checks validity of board
+    //checks validity of board and assigns fitness value to board
     bool checkValid() {
         int checks[9];
         int temp;
+        int fit = 0;
+        bool valid = true;
         // checks rows for 0s or duplicates
         for (int i=0;i<9;i++) {
             std::fill_n(checks,9, 0);
             for (int j=0;j<9;j++) {
                 temp = board[i][j];
-                if (temp == 0) {
-                    return false;
+                if (temp == 0 || temp > 9) {
+                    valid = false;
+                    fit++;
                 }
                 else if (checks[temp - 1] == temp) {
-                    return false;
+                    valid = false;
+                    fit++;
                 }
-                checks[temp - 1] = temp;
-
+                else {
+                    checks[temp - 1] = temp;
+                }
             }
         }
 
@@ -74,11 +80,17 @@ class SudokuBoard {
             std::fill_n(checks,9, 0);
             for (int j=0;j<9;j++) {
                 temp = board[j][i];
-                if (checks[temp - 1] == temp) {
-                    return false;
+                if (temp == 0 || temp > 9) {
+                    valid = false;
+                    fit++;
                 }
-                checks[temp - 1] = temp;
-
+                else if (checks[temp - 1] == temp) {
+                    valid = false;
+                    fit++;
+                }
+                else {
+                    checks[temp - 1] = temp;
+                }
             }
         }
 
@@ -89,10 +101,17 @@ class SudokuBoard {
             for (int j=i*3;j<(i+1)*3;j++) {
                 for (int n=0;n<3;n++) {
                     temp = board[j][n];
-                    if (checks[temp - 1] == temp) {
-                    return false;
+                    if (temp == 0 || temp > 9) {
+                    valid = false;
+                    fit++;
                     }
-                    checks[temp - 1] = temp;
+                    else if (checks[temp - 1] == temp) {
+                    valid = false;
+                    fit++;
+                    }
+                    else {
+                        checks[temp - 1] = temp;
+                    }
                 }
             }
             //checks horizontal squares
@@ -100,10 +119,17 @@ class SudokuBoard {
             for (int j=i*3;j<(i+1)*3;j++) {
                 for (int n=3;n<6;n++) {
                     temp = board[n][j];
-                    if (checks[temp - 1] == temp) {
-                    return false;
+                    if (temp == 0 || temp > 9) {
+                    valid = false;
+                    fit++;
                     }
+                    if (checks[temp - 1] == temp) {
+                    valid = false;
+                    fit++;
+                    }
+                    else {
                     checks[temp - 1] = temp;
+                    }
                 }
             }
             
@@ -111,14 +137,22 @@ class SudokuBoard {
             for (int j=i*3;j<(i+1)*3;j++) {
                 for (int n=6;n<9;n++) {
                     temp = board[j][n];
-                    if (checks[temp - 1] == temp) {
-                    return false;
+                    if (temp == 0 || temp > 9) {
+                    valid = false;
+                    fit++;
                     }
+                    else if (checks[temp - 1] == temp) {
+                    valid = false;
+                    fit++;
+                    }
+                    else {
                     checks[temp - 1] = temp;
+                    }
                 }
             }
         }
-        return true;
+        fitness = fit;
+        return valid;
     }
 
     bool checkValidCell(int row, int col) {
