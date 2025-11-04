@@ -49,10 +49,6 @@ class SudokuBoard {
         }
     }
 
-    SudokuBoard copy() {
-
-    }
-
     //checks validity of board
     bool checkValid() {
         int checks[9];
