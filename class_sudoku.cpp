@@ -10,6 +10,7 @@ class SudokuBoard {
         int board[9][9];
         int fitness = 0;
         int ascii0 = '0'; // integer value of the ascii character 0. Useful for converting the ascii digits to int digits
+        vector<array<int, 3>> givens;
         SudokuBoard(string boardString){ //takes an 81 char string representing the board. '.' represents an empty space
             auto nextChar = boardString.begin(); // make an iterator to pass through the string representation of the board
             for(int row = 0; row < 9; row++) {
@@ -17,7 +18,9 @@ class SudokuBoard {
                     if(*nextChar == '.') {
                         board[row][col] = 0;
                     } else{
-                        board[row][col] = *nextChar - ascii0; // subtract
+                        int value = *nextChar - ascii0; // subtract
+                        board[row][col] = value;
+                        givens.insert(givens.end(), {row, col, value}); // register givens
                     }
                     nextChar++;
 
@@ -31,6 +34,7 @@ class SudokuBoard {
                     board[row][col] = copiedBoard.board[row][col];
                 }
             }
+            givens = copiedBoard.givens;
         } 
         SudokuBoard(){}
 
