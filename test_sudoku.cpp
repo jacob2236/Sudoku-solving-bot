@@ -1,19 +1,21 @@
 #include <iostream>
 #include "class_sudoku.cpp"
+#include "class_sudoku_possibilities.cpp"
 #include "board_loader.cpp"
 #include "brute_force.cpp"
+#include "tabu_search.cpp"
 using namespace std;
 
 
 
 int main() {
-    srand(6); // set the seed
+    srand(1); // set the seed
     SudokuBoard board = getRandomBoard();
     
     //tests valid function
     board.print();
     cout << "solving...\n";
-    SudokuBoard solvedBoard = bruteForce(board);
+    PossibilitiesBoard solvedBoard = tabuSearch(board, 10000, 100, 100);
     solvedBoard.print();
     if (solvedBoard.checkValid()) {
         cout << "valid\n";
@@ -29,7 +31,7 @@ int main() {
     //tests valid function
     board.print();
     cout << "solving...\n";
-    solvedBoard = bruteForce(board);
+    solvedBoard = tabuSearch(board, 10000, 100, 100);
     solvedBoard.print();
     if (solvedBoard.checkValid()) {
         cout << "valid\n";
@@ -43,7 +45,7 @@ int main() {
     //tests valid function
     board.print();
     cout << "solving...\n";
-    solvedBoard = bruteForce(board);
+    solvedBoard = tabuSearch(board, 10000, 100, 100);
     solvedBoard.print();
     if (solvedBoard.checkValid()) {
         cout << "valid\n";
