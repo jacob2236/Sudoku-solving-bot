@@ -4,10 +4,10 @@
 
 class AbstractBoard{
     public:
-        function<int(RepresentedBoard)> fitness;
+        function<int(SudokuBoard)> fitness;
         function<SudokuBoard(SudokuBoard)> mutate; // takes just a Sudokuboard to be representation agnostic
         RepresentedBoard repBoard;
-        AbstractBoard(function<int(RepresentedBoard)> fit, function<SudokuBoard(SudokuBoard)> mut, RepresentedBoard board) {
+        AbstractBoard(function<int(SudokuBoard)> fit, function<SudokuBoard(SudokuBoard)> mut, RepresentedBoard board) {
             fitness = fit;
             mutate = mut;
             repBoard = board;

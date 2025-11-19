@@ -73,6 +73,8 @@ class PossibilitiesBoard: public SudokuBoard {
         }
         
         PossibilitiesBoard(){}
+
+        
         set<int> getPossibilities(int row, int col) {
             set<int> digits = {1, 2, 3, 4, 5, 6, 7, 8, 9};
             for(int i = 0; i < 9; i++) {
