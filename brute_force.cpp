@@ -1,4 +1,5 @@
 #include "class_sudoku.h"
+#include "class_abstract_board.cpp"
 
 /* To compare metaheuristics we should have a very simple heuristic example to compare off of.
 Some of these algorithms give poor results or appear poorly suited for sudoku.
@@ -29,4 +30,16 @@ SudokuBoard bruteForce(SudokuBoard board) {
     }
     //if no empty cell has been found, return the (hopefully) valid board
     return board;
+}
+
+SudokuBoard randomBruteForce(AbstractBoard inputBoard, int maxIter) {
+    int iter = 0;
+    AbstractBoard nextBoard = inputBoard.sample();
+    while(nextBoard.getFitness() > 0 && iter < maxIter) {
+        AbstractBoard testBoard = nextBoard.sample();
+        if (testBoard.getFitness() < nextBoard.getFitness()) {
+            nextBoard = testBoard;
+        }
+    }
+    return nextBoard.repBoard.base;
 }
