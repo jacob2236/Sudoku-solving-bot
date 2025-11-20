@@ -250,6 +250,22 @@ class SudokuBoard {
         }
     }
 
+    // Similar to ForEachGroup but finds the group responsible for the given row/col pair 
+    // Only one group rather than all groups
+    void forThisGroup(function<void(int[9])> func, int row, int col) {
+        int top = row - (row % 3); // get top corner
+        int left = col - (col % 3); // get left corner
+        int group[9]; // left to right top to bottom
+        int counter = 0;
+        for (int y = 0; y < 3; y++) {
+            for(int x= 0; x < 3; x++) {
+                group[counter] = board[top + y][left + x];
+                counter += 1;
+            }
+        }
+        func(group);
+    }
+
 
 
 };
