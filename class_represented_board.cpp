@@ -33,4 +33,8 @@ class RepresentedBoard{
             return true;
         }
 
+        RepresentedBoard newRep(SudokuBoard board) {
+            return RepresentedBoard(board);
+        }
+
 };
