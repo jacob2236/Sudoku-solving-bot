@@ -32,14 +32,21 @@ SudokuBoard bruteForce(SudokuBoard board) {
     return board;
 }
 
-SudokuBoard randomBruteForce(AbstractBoard inputBoard, int maxIter) {
+AbstractBoard randomBruteForce(AbstractBoard inputBoard, int maxIter) {
+    // Instantiation, default startup
     int iter = 0;
     AbstractBoard nextBoard = inputBoard.sample();
-    while(nextBoard.getFitness() > 0 && iter < maxIter) {
-        AbstractBoard testBoard = nextBoard.sample();
-        if (testBoard.getFitness() < nextBoard.getFitness()) {
+    int bestFitness = nextBoard.getFitness();
+
+    while(nextBoard.getFitness() > 0 && iter < maxIter) { //iterate until you can't or a fitness of 0 (solved board)
+        AbstractBoard testBoard = nextBoard.sample();// random new board
+        int testFitness = testBoard.getFitness();
+        if (testFitness < bestFitness) { // Lower is better
+            // save new best
             nextBoard = testBoard;
+            bestFitness = testFitness;
         }
+        iter++;
     }
-    return nextBoard.repBoard.base;
+    return nextBoard;
 }

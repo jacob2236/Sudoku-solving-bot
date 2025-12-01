@@ -2,15 +2,9 @@
 #include <set>
 /* This should contain all mutation functions for easy include accessing
 An abstract mutator function exists as a blueprint/pseudocode 
-Mutation functions SHOULD operate only on a basic SudokuBoard to be agnostic to representations
+Mutation functions MUST operate only on a basic SudokuBoard to be agnostic to representations
 */
 
-// template for my sanity's sake
-SudokuBoard mutateTEMPLATE(SudokuBoard newBoard) {
-    //mutate
-    newBoard.board[0][0] = 1;
-    return newBoard;
-}
 
 SudokuBoard swapInRow(SudokuBoard newBoard) {
     //mutates by swapping two digits within a row

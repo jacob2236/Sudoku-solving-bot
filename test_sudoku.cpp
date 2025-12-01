@@ -4,6 +4,11 @@
 #include "board_loader.cpp"
 #include "brute_force.cpp"
 #include "tabu_search.cpp"
+#include "class_abstract_board.cpp"
+#include "mutation_functions.cpp"
+#include "fitness_functions.cpp"
+#include "class_represented_alldifferent.cpp"
+#include "crossover_functions.cpp"
 using namespace std;
 
 
@@ -11,48 +16,42 @@ using namespace std;
 int main() {
     srand(1); // set the seed
     SudokuBoard board = getRandomBoard();
-    
-    //tests valid function
+    // give it to a representation
+    RepresentedBoard repBoard(board);
+    // make the abstract board
+    AbstractBoard abstractBoard(countConflicts, fillOrRemove, dummy, repBoard);
+    //test
     board.print();
     cout << "solving...\n";
-    PossibilitiesBoard solvedBoard = tabuSearch(board, 10000, 100, 100);
+    AbstractBoard solvedBoard = randomBruteForce(abstractBoard, 1000);
     solvedBoard.print();
-    if (solvedBoard.checkValid()) {
-        cout << "valid\n";
-    }
-    else {
-        cout << "nonvalid\n";
 
-    }
 
 
     board = getRandom17Board();
     
-    //tests valid function
+    // give it to a representation
+    repBoard = RepresentedBoard(board);
+    // make the abstract board
+    abstractBoard = AbstractBoard(countConflicts, fillOrRemove, dummy, repBoard);
+    //test
     board.print();
     cout << "solving...\n";
-    solvedBoard = tabuSearch(board, 10000, 100, 100);
+    solvedBoard = randomBruteForce(abstractBoard, 1000);
     solvedBoard.print();
-    if (solvedBoard.checkValid()) {
-        cout << "valid\n";
-    }
-    else {
-        cout << "nonvalid\n";
-    }
+
 
     board = getRandomHardBoard();
     
-    //tests valid function
+    // give it to a representation
+    repBoard = RepresentedBoard(board);
+    // make the abstract board
+    abstractBoard = AbstractBoard(countConflicts, fillOrRemove, dummy, repBoard);
+    //test
     board.print();
     cout << "solving...\n";
-    solvedBoard = tabuSearch(board, 10000, 100, 100);
+    solvedBoard = randomBruteForce(abstractBoard, 1000);
     solvedBoard.print();
-    if (solvedBoard.checkValid()) {
-        cout << "valid\n";
-    }
-    else {
-        cout << "nonvalid\n";
-    }
 
     cout << endl; // flush buffer
     return 0;

@@ -1,5 +1,6 @@
 #include <iostream>
 #include <functional>
+#include <array>
 using namespace std;
 #pragma once
 
@@ -7,7 +8,7 @@ class SudokuBoard {
 
     //board in double array form. Row major order
     public:
-        int board[9][9];
+        array<array<int, 9>, 9> board;
         int fitness = 0;
         int ascii0 = '0'; // integer value of the ascii character 0. Useful for converting the ascii digits to int digits
         vector<array<int, 3>> givens;
@@ -28,15 +29,9 @@ class SudokuBoard {
                 }
             }
         }
-        SudokuBoard(const SudokuBoard& copiedBoard){ // copy constructor :3
-            for(int row = 0; row < 9; row++) {
-                for(int col = 0; col < 9; col++) {
-                    board[row][col] = copiedBoard.board[row][col];
-                }
-            }
-            givens = copiedBoard.givens;
-        } 
-        SudokuBoard(){}
+        SudokuBoard(){
+            
+        }
 
     //prints board
     void print() {
@@ -198,7 +193,7 @@ class SudokuBoard {
         board[row][column] = 0;
     }
 
-    int get(int row, int col){
+    int get(int row, int col) {
         return board[row][col];
     }
 
@@ -217,8 +212,13 @@ class SudokuBoard {
     }
 
     void forEachRow(function<void(int[9])> func) {
+        
         for(int row = 0; row < 9; row++){
-            func(board[row]);
+            int output[9];
+            for(int col = 0; col < 9; col++) {
+                output[col] = board[row][col];
+            }
+            func(output);
         }
     }
 
