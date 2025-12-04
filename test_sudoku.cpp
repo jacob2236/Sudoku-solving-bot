@@ -17,9 +17,9 @@ int main() {
     srand(1); // set the seed
     SudokuBoard board = getRandomBoard();
     // give it to a representation
-    RepresentedBoard repBoard(board);
+    RepresentedAllDifferent repBoard(board);
     // make the abstract board
-    AbstractBoard abstractBoard(countConflicts, fillOrRemove, dummy, repBoard);
+    AbstractBoard abstractBoard(countConflicts, fillPossibilityOrRemove, dummy, repBoard);
     //test
     board.print();
     cout << "solving...\n";
@@ -31,9 +31,9 @@ int main() {
     board = getRandom17Board();
     
     // give it to a representation
-    repBoard = RepresentedBoard(board);
+    repBoard = RepresentedAllDifferent(board);
     // make the abstract board
-    abstractBoard = AbstractBoard(countConflicts, fillOrRemove, dummy, repBoard);
+    abstractBoard = AbstractBoard(countConflicts, fillPossibilityOrRemove, dummy, repBoard);
     //test
     board.print();
     cout << "solving...\n";
@@ -44,9 +44,9 @@ int main() {
     board = getRandomHardBoard();
     
     // give it to a representation
-    repBoard = RepresentedBoard(board);
+    repBoard = RepresentedAllDifferent(board);
     // make the abstract board
-    abstractBoard = AbstractBoard(countConflicts, fillOrRemove, dummy, repBoard);
+    abstractBoard = AbstractBoard(countConflicts, fillPossibilityOrRemove, dummy, repBoard);
     //test
     board.print();
     cout << "solving...\n";

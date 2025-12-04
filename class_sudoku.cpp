@@ -53,20 +53,17 @@ class SudokuBoard {
     bool checkValid() {
         int checks[9];
         int temp;
-        int fit = 0;
         bool valid = true;
         // checks rows for 0s or duplicates
         for (int i=0;i<9;i++) {
             std::fill_n(checks,9, 0);
             for (int j=0;j<9;j++) {
                 temp = board[i][j];
-                if (temp == 0 || temp > 9) {
-                    valid = false;
-                    fit++;
+                if (temp <= 0 || temp > 9) {
+                    return false;
                 }
                 else if (checks[temp - 1] == temp) {
-                    valid = false;
-                    fit++;
+                    return false;
                 }
                 else {
                     checks[temp - 1] = temp;
@@ -79,13 +76,11 @@ class SudokuBoard {
             std::fill_n(checks,9, 0);
             for (int j=0;j<9;j++) {
                 temp = board[j][i];
-                if (temp == 0 || temp > 9) {
-                    valid = false;
-                    fit++;
+                if (temp <= 0 || temp > 9) {
+                    return false;
                 }
                 else if (checks[temp - 1] == temp) {
-                    valid = false;
-                    fit++;
+                    return false;
                 }
                 else {
                     checks[temp - 1] = temp;
@@ -100,13 +95,11 @@ class SudokuBoard {
             for (int j=i*3;j<(i+1)*3;j++) {
                 for (int n=0;n<3;n++) {
                     temp = board[j][n];
-                    if (temp == 0 || temp > 9) {
-                    valid = false;
-                    fit++;
+                    if (temp <= 0 || temp > 9) {
+                        return false;
                     }
                     else if (checks[temp - 1] == temp) {
-                    valid = false;
-                    fit++;
+                        return false;
                     }
                     else {
                         checks[temp - 1] = temp;
@@ -118,13 +111,11 @@ class SudokuBoard {
             for (int j=i*3;j<(i+1)*3;j++) {
                 for (int n=3;n<6;n++) {
                     temp = board[n][j];
-                    if (temp == 0 || temp > 9) {
-                    valid = false;
-                    fit++;
+                    if (temp <= 0 || temp > 9) {
+                        return false;
                     }
                     if (checks[temp - 1] == temp) {
-                    valid = false;
-                    fit++;
+                        return false;
                     }
                     else {
                     checks[temp - 1] = temp;
@@ -136,13 +127,11 @@ class SudokuBoard {
             for (int j=i*3;j<(i+1)*3;j++) {
                 for (int n=6;n<9;n++) {
                     temp = board[j][n];
-                    if (temp == 0 || temp > 9) {
-                    valid = false;
-                    fit++;
+                    if (temp <= 0 || temp > 9) {
+                        return false;
                     }
                     else if (checks[temp - 1] == temp) {
-                    valid = false;
-                    fit++;
+                        return false;
                     }
                     else {
                     checks[temp - 1] = temp;
@@ -150,7 +139,6 @@ class SudokuBoard {
                 }
             }
         }
-        fitness = fit;
         return valid;
     }
 

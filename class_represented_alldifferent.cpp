@@ -8,10 +8,12 @@ class RepresentedAllDifferent: public RepresentedBoard {
     public:
         SudokuBoard base;
         vector<array<int, 3>> givens;
-        RepresentedAllDifferent(SudokuBoard newBoard = SudokuBoard()){
-            base = newBoard;
-            givens = newBoard.givens;
+        RepresentedAllDifferent(SudokuBoard newBoard) : RepresentedBoard(newBoard)
+        { 
+            
         }
+        RepresentedAllDifferent(){
+        };
 
         // Called when creating a mutated sample of the board. 
         // returns NULL POINTER to reject the mutation if it unfixably breaks the board or representation
