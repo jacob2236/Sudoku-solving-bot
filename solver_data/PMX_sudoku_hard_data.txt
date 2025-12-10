@@ -1,0 +1,460 @@
+stats for board #1:
+Attempt #1
+Best fitness: 4
+Time(CPU ticks): 4060
+--------------------------------------
+Attempt #2
+Best fitness: 13
+Time(CPU ticks): 4042
+--------------------------------------
+Attempt #3
+Best fitness: 2
+Time(CPU ticks): 3996
+--------------------------------------
+Attempt #4
+Best fitness: 10
+Time(CPU ticks): 4071
+--------------------------------------
+Attempt #5
+Best fitness: 4
+Time(CPU ticks): 3944
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #2:
+Attempt #1
+Best fitness: 13
+Time(CPU ticks): 3962
+--------------------------------------
+Attempt #2
+Best fitness: 15
+Time(CPU ticks): 3947
+--------------------------------------
+Attempt #3
+Best fitness: 3
+Time(CPU ticks): 3937
+--------------------------------------
+Attempt #4
+Best fitness: 14
+Time(CPU ticks): 4027
+--------------------------------------
+Attempt #5
+Best fitness: 12
+Time(CPU ticks): 3988
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #3:
+Attempt #1
+Best fitness: 4
+Time(CPU ticks): 3990
+--------------------------------------
+Attempt #2
+Best fitness: 5
+Time(CPU ticks): 4059
+--------------------------------------
+Attempt #3
+Best fitness: 8
+Time(CPU ticks): 4012
+--------------------------------------
+Attempt #4
+Best fitness: 3
+Time(CPU ticks): 4078
+--------------------------------------
+Attempt #5
+Best fitness: 10
+Time(CPU ticks): 4039
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #4:
+Attempt #1
+Best fitness: 10
+Time(CPU ticks): 4042
+--------------------------------------
+Attempt #2
+Best fitness: 10
+Time(CPU ticks): 3987
+--------------------------------------
+Attempt #3
+Best fitness: 15
+Time(CPU ticks): 3997
+--------------------------------------
+Attempt #4
+Best fitness: 7
+Time(CPU ticks): 3987
+--------------------------------------
+Attempt #5
+Best fitness: 9
+Time(CPU ticks): 3986
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #5:
+Attempt #1
+Best fitness: 7
+Time(CPU ticks): 4086
+--------------------------------------
+Attempt #2
+Best fitness: 7
+Time(CPU ticks): 4057
+--------------------------------------
+Attempt #3
+Best fitness: 6
+Time(CPU ticks): 3937
+--------------------------------------
+Attempt #4
+Best fitness: 3
+Time(CPU ticks): 4096
+--------------------------------------
+Attempt #5
+Best fitness: 14
+Time(CPU ticks): 4215
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #6:
+Attempt #1
+Best fitness: 13
+Time(CPU ticks): 4081
+--------------------------------------
+Attempt #2
+Best fitness: 16
+Time(CPU ticks): 4149
+--------------------------------------
+Attempt #3
+Best fitness: 8
+Time(CPU ticks): 4096
+--------------------------------------
+Attempt #4
+Best fitness: 6
+Time(CPU ticks): 4009
+--------------------------------------
+Attempt #5
+Best fitness: 9
+Time(CPU ticks): 4143
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #7:
+Attempt #1
+Best fitness: 11
+Time(CPU ticks): 4132
+--------------------------------------
+Attempt #2
+Best fitness: 15
+Time(CPU ticks): 4120
+--------------------------------------
+Attempt #3
+Best fitness: 5
+Time(CPU ticks): 4085
+--------------------------------------
+Attempt #4
+Best fitness: 15
+Time(CPU ticks): 4091
+--------------------------------------
+Attempt #5
+Best fitness: 8
+Time(CPU ticks): 4079
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #8:
+Attempt #1
+Best fitness: 12
+Time(CPU ticks): 4268
+--------------------------------------
+Attempt #2
+Best fitness: 10
+Time(CPU ticks): 4108
+--------------------------------------
+Attempt #3
+Best fitness: 13
+Time(CPU ticks): 4090
+--------------------------------------
+Attempt #4
+Best fitness: 12
+Time(CPU ticks): 4180
+--------------------------------------
+Attempt #5
+Best fitness: 4
+Time(CPU ticks): 4081
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #9:
+Attempt #1
+Best fitness: 10
+Time(CPU ticks): 4004
+--------------------------------------
+Attempt #2
+Best fitness: 5
+Time(CPU ticks): 3976
+--------------------------------------
+Attempt #3
+Best fitness: 10
+Time(CPU ticks): 3971
+--------------------------------------
+Attempt #4
+Best fitness: 4
+Time(CPU ticks): 4146
+--------------------------------------
+Attempt #5
+Best fitness: 8
+Time(CPU ticks): 3954
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #10:
+Attempt #1
+Best fitness: 7
+Time(CPU ticks): 3916
+--------------------------------------
+Attempt #2
+Best fitness: 9
+Time(CPU ticks): 3977
+--------------------------------------
+Attempt #3
+Best fitness: 8
+Time(CPU ticks): 3899
+--------------------------------------
+Attempt #4
+Best fitness: 10
+Time(CPU ticks): 3969
+--------------------------------------
+Attempt #5
+Best fitness: 3
+Time(CPU ticks): 3909
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #11:
+Attempt #1
+Best fitness: 13
+Time(CPU ticks): 4023
+--------------------------------------
+Attempt #2
+Best fitness: 5
+Time(CPU ticks): 4021
+--------------------------------------
+Attempt #3
+Best fitness: 2
+Time(CPU ticks): 3957
+--------------------------------------
+Attempt #4
+Best fitness: 4
+Time(CPU ticks): 4033
+--------------------------------------
+Attempt #5
+Best fitness: 3
+Time(CPU ticks): 4190
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #12:
+Attempt #1
+Best fitness: 15
+Time(CPU ticks): 4372
+--------------------------------------
+Attempt #2
+Best fitness: 7
+Time(CPU ticks): 5229
+--------------------------------------
+Attempt #3
+Best fitness: 9
+Time(CPU ticks): 4094
+--------------------------------------
+Attempt #4
+Best fitness: 3
+Time(CPU ticks): 4287
+--------------------------------------
+Attempt #5
+Best fitness: 16
+Time(CPU ticks): 4116
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #13:
+Attempt #1
+Best fitness: 15
+Time(CPU ticks): 3975
+--------------------------------------
+Attempt #2
+Best fitness: 17
+Time(CPU ticks): 3946
+--------------------------------------
+Attempt #3
+Best fitness: 12
+Time(CPU ticks): 4074
+--------------------------------------
+Attempt #4
+Best fitness: 10
+Time(CPU ticks): 3935
+--------------------------------------
+Attempt #5
+Best fitness: 17
+Time(CPU ticks): 4027
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #14:
+Attempt #1
+Best fitness: 9
+Time(CPU ticks): 4142
+--------------------------------------
+Attempt #2
+Best fitness: 10
+Time(CPU ticks): 4271
+--------------------------------------
+Attempt #3
+Best fitness: 11
+Time(CPU ticks): 4574
+--------------------------------------
+Attempt #4
+Best fitness: 7
+Time(CPU ticks): 4054
+--------------------------------------
+Attempt #5
+Best fitness: 6
+Time(CPU ticks): 4046
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #15:
+Attempt #1
+Best fitness: 7
+Time(CPU ticks): 3998
+--------------------------------------
+Attempt #2
+Best fitness: 7
+Time(CPU ticks): 4031
+--------------------------------------
+Attempt #3
+Best fitness: 12
+Time(CPU ticks): 4117
+--------------------------------------
+Attempt #4
+Best fitness: 15
+Time(CPU ticks): 4076
+--------------------------------------
+Attempt #5
+Best fitness: 6
+Time(CPU ticks): 4166
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #16:
+Attempt #1
+Best fitness: 6
+Time(CPU ticks): 4203
+--------------------------------------
+Attempt #2
+Best fitness: 13
+Time(CPU ticks): 4094
+--------------------------------------
+Attempt #3
+Best fitness: 13
+Time(CPU ticks): 3947
+--------------------------------------
+Attempt #4
+Best fitness: 7
+Time(CPU ticks): 3941
+--------------------------------------
+Attempt #5
+Best fitness: 3
+Time(CPU ticks): 3928
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #17:
+Attempt #1
+Best fitness: 4
+Time(CPU ticks): 3976
+--------------------------------------
+Attempt #2
+Best fitness: 9
+Time(CPU ticks): 3998
+--------------------------------------
+Attempt #3
+Best fitness: 2
+Time(CPU ticks): 3974
+--------------------------------------
+Attempt #4
+Best fitness: 7
+Time(CPU ticks): 4031
+--------------------------------------
+Attempt #5
+Best fitness: 10
+Time(CPU ticks): 4075
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #18:
+Attempt #1
+Best fitness: 6
+Time(CPU ticks): 3842
+--------------------------------------
+Attempt #2
+Best fitness: 5
+Time(CPU ticks): 3888
+--------------------------------------
+Attempt #3
+Best fitness: 11
+Time(CPU ticks): 3865
+--------------------------------------
+Attempt #4
+Best fitness: 11
+Time(CPU ticks): 3890
+--------------------------------------
+Attempt #5
+Best fitness: 2
+Time(CPU ticks): 3862
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #19:
+Attempt #1
+Best fitness: 4
+Time(CPU ticks): 3957
+--------------------------------------
+Attempt #2
+Best fitness: 9
+Time(CPU ticks): 4215
+--------------------------------------
+Attempt #3
+Best fitness: 8
+Time(CPU ticks): 4050
+--------------------------------------
+Attempt #4
+Best fitness: 9
+Time(CPU ticks): 3992
+--------------------------------------
+Attempt #5
+Best fitness: 10
+Time(CPU ticks): 4018
+--------------------------------------
+--------------------------------------
+--------------------------------------
+stats for board #20:
+Attempt #1
+Best fitness: 7
+Time(CPU ticks): 3936
+--------------------------------------
+Attempt #2
+Best fitness: 2
+Time(CPU ticks): 3959
+--------------------------------------
+Attempt #3
+Best fitness: 15
+Time(CPU ticks): 4001
+--------------------------------------
+Attempt #4
+Best fitness: 14
+Time(CPU ticks): 3907
+--------------------------------------
+Attempt #5
+Best fitness: 16
+Time(CPU ticks): 4027
+--------------------------------------
+--------------------------------------
+--------------------------------------
