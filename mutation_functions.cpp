@@ -71,3 +71,110 @@ SudokuBoard fillPossibilityOrRemove(SudokuBoard newBoard){
     return newBoard;
 
 }
+
+// For the record, I think this shouldn't be part of the mutation function (and I will make/test a variant w/out it)
+// The point of mutating IS to be random and kinda wrong. If every move is right, we just end up stuck in local optima
+bool isLegalSwap(const SudokuBoard &board, int row, int col1, int col2) {
+    int digit1 = board.board[row][col1];
+    int digit2 = board.board[row][col2];
+
+    // check column c1 for digit2 excluding position (row,c2)
+    for (int r = 0; r < 9; ++r) {
+        if (r == row) continue;
+        if (board.board[r][col1] == digit2) return false;
+    }
+    // check column c2 for digit1 excluding (row,c1)
+    for (int r = 0; r < 9; ++r) {
+        if (r == row) continue;
+        if (board.board[r][col2] == digit1) return false;
+    }
+
+    // check block for new positions
+    auto blockTopLeft = [](int r, int c){ return std::make_pair((r/3)*3,(c/3)*3); };
+
+    //for target (row,c1) with value digit2 
+    auto topLeft = blockTopLeft(row, col1);
+    for (int rr = topLeft.first; rr < topLeft.first+3; ++rr) {
+        for (int cc = topLeft.second; cc < topLeft.second+3; ++cc) {
+            if (rr == row && cc == col2) continue; // original location of digit2
+            if (rr == row && cc == col1) continue; // skip itself
+            if (board.board[rr][cc] == digit2) return false;
+        }
+    }
+
+    // for target (row,c2) with value digit1
+    auto topLeft = blockTopLeft(row, col2);
+    for (int rr = topLeft.first; rr < topLeft.first+3; ++rr) {
+        for (int cc = topLeft.second; cc < topLeft.second+3; ++cc) {
+            if (rr == row && cc == col1) continue; // original location of digit1
+            if (rr == row && cc == col2) continue; // skip itself
+            if (board.board[rr][cc] == digit1) return false;
+        }
+    }
+
+
+    return true;
+}
+
+// Taken from original genetic algo code. Assume called when a mutation chance is procced
+// paremeterized for whether it checks if the swap is an improving swap (see isLegalSwap() comment)
+SudokuBoard rowSwapBase(SudokuBoard newBoard, bool check) {
+
+
+    for (int row = 0; row < 9; ++row) {
+    
+        // Find mutable (non-given) columns for this row
+        std::vector<int> mutableCols;
+        for (int col = 0; col < 9; ++col) {
+            bool isGiven = false;
+            for (const auto& givensIterator : newBoard.givens) {
+                if (givensIterator[0] == row && givensIterator[1] == col) {
+                    isGiven = true;
+                    break;
+                }
+            }
+            if (!isGiven) {
+                mutableCols.push_back(col);
+            }
+        }
+
+        // If fewer than 2 mutable cells, skip this row
+        int availableCols = mutableCols.size();
+        if (availableCols < 2) {
+            continue;
+        }
+        // Randomly pick two different mutable columns to swap
+        int index1 = rand() % availableCols;  
+        int index2 = rand() % availableCols;  
+        while (index2 == index1) { // reroll dupes
+            index2 = rand() % availableCols;  
+        }
+
+        int col1 = mutableCols[index1];
+        int col2 = mutableCols[index2];
+
+    // Swap them
+        if (check) {
+            if (isLegalSwap(newBoard, row, col1, col2)) {
+                std::swap(newBoard.board[row][col1], newBoard.board[row][col2]);
+            }
+        }
+        
+    
+
+        
+        else {
+            continue;
+        }
+    }
+    
+    return newBoard;
+}
+
+SudokuBoard rowSwap(SudokuBoard newBoard) {
+    return rowSwapBase(newBoard, false);
+}
+
+SudokuBoard rowSwapCheck(SudokuBoard newBoard) {
+    return rowSwapBase(newBoard, true);
+}
