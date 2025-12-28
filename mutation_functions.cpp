@@ -103,7 +103,7 @@ bool isLegalSwap(const SudokuBoard &board, int row, int col1, int col2) {
     }
 
     // for target (row,c2) with value digit1
-    auto topLeft = blockTopLeft(row, col2);
+    topLeft = blockTopLeft(row, col2);
     for (int rr = topLeft.first; rr < topLeft.first+3; ++rr) {
         for (int cc = topLeft.second; cc < topLeft.second+3; ++cc) {
             if (rr == row && cc == col1) continue; // original location of digit1
