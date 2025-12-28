@@ -60,4 +60,8 @@ class RepresentedAllDifferent: public RepresentedBoard {
             return true;
         }
 
+        RepresentedAllDifferent newRep(SudokuBoard board) {
+            return RepresentedAllDifferent(board);
+        }
+
 };

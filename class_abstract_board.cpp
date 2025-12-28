@@ -27,7 +27,7 @@ class AbstractBoard{
             } 
             while (!valid);
             //We have a valid mutation. Make a new rep out of it and make the new total abstract board
-            RepresentedBoard newRep = repBoard.newRep(mutableCopy); // Each repboard will have its own newRep() for its type
+            auto newRep = repBoard.newRep(mutableCopy); // Each repboard will have its own newRep() for its type
             AbstractBoard nextBoard = AbstractBoard(fitness, mutate, mix, newRep);
             return nextBoard;           
         }
@@ -44,7 +44,7 @@ class AbstractBoard{
                 mutableCopy = mix(repBoard.base, otherBoard.repBoard.base);
                 invalid = repBoard.validate(mutableCopy);
             } while (invalid);
-            RepresentedBoard newBoard = RepresentedBoard(mutableCopy); //TODO Repboard typing!!!
+            auto newBoard = repBoard.newRep(mutableCopy); //TODO Repboard typing!!!
             return AbstractBoard(fitness, mutate, mix, newBoard);
         }
 
