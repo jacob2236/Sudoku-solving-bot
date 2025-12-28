@@ -18,12 +18,12 @@ class RepresentedAllDifferent: public RepresentedBoard {
         // Called when creating a mutated sample of the board. 
         // returns NULL POINTER to reject the mutation if it unfixably breaks the board or representation
         // returns the board if no changes are needed or mild corrections could be completed
-        RepresentedAllDifferent* validate(SudokuBoard newBoard){
+        bool validate(SudokuBoard &newBoard){
             // check if givens are valid first
             for(int i = 0; i < givens.size(); i++) {
                 array<int, 3> given = givens[i];
                 if(newBoard.board[given[0]][given[1]] != given[2]) {
-                    return NULL; //invalid and irreconcilable board
+                    return false; //invalid and irreconcilable board
                 }
             }
             // check for other deal-breakers, if they exist return NULL as well
@@ -38,17 +38,17 @@ class RepresentedAllDifferent: public RepresentedBoard {
             };
             newBoard.forEachRow(getDuplicates);
             if(duplicates) {
-                return NULL;
+                return false;
             } 
 
             newBoard.forEachCol(getDuplicates);
             if (duplicates) {
-                return NULL;
+                return false;
             }
         
             newBoard.forEachGroup(getDuplicates); 
             if (duplicates) {
-                return NULL;
+                return false;
             }
             
             
@@ -57,10 +57,7 @@ class RepresentedAllDifferent: public RepresentedBoard {
             // in less than like 2^N time, we wouldn't be making metaheuristics would we?
 
 
-            // Construct a new RepresentedBoard based on the mutated and fixed up input
-            RepresentedAllDifferent result = RepresentedAllDifferent(newBoard);
-            RepresentedAllDifferent* resultPointer = &result;
-            return resultPointer;
+            return true;
         }
 
 };

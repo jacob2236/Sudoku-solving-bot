@@ -17,7 +17,7 @@ class RepresentedBoard{
         // Called when creating a mutated sample of the board. 
         // returns NULL POINTER to reject the mutation if it unfixably breaks the board or representation
         // returns the board if no changes are needed or mild corrections could be completed
-        bool validate(SudokuBoard newBoard){
+        bool validate(SudokuBoard &newBoard){
             // check if givens are valid first
             for(int i = 0; i < givens.size(); i++) {
                 array<int, 3> given = givens[i];
