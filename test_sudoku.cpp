@@ -56,5 +56,27 @@ int main() {
     cout << endl; // flush buffer
     return 0;
 
+    //Data collection
+    double average_time = 0; 
+    double average_solve = 0;
+    int boards_solved = 0;
+    int num_of_boards = 20;
+    int num_trials_per_board = 5;
+    clock_t start, end;
+
+    for (int trial=1;trial<=num_trials_per_board;trial++) {
+        const std::clock_t c_start = std::clock();
+        start = clock();
+
+        // DO tests
+
+        end = clock();
+        double time_taken = double(end - start);
+        cout << "Attempt #" << trial << "\trial";
+        cout << "Best fitness: " << generation[0].fitness << "\trial";
+        cout << "Time(CPU ticks): " << time_taken << "\trial";
+        cout << "--------------------------------------\trial";
+    }
+
 
 }
