@@ -34,7 +34,8 @@ class AbstractBoard{
         }
 
         int getFitness() {
-            return fitness(repBoard.base);
+            fitnessValue = fitness(repBoard.base);
+            return fitnessValue;
         }
 
         AbstractBoard crossover(AbstractBoard otherBoard) {
