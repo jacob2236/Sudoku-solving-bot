@@ -50,6 +50,10 @@ class AbstractBoard{
             return AbstractBoard(fitness, mutate, mix, newBoard);
         }
 
+        SudokuBoard getBoard() {
+            return repBoard.base;
+        }
+
         void print(){
             repBoard.base.print();
             bool validSudoku = repBoard.base.checkValid();
