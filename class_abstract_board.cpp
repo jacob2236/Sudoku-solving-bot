@@ -9,10 +9,11 @@ class AbstractBoard{
         function<SudokuBoard(SudokuBoard)> mutate; // takes just a Sudokuboard to be representation agnostic
         function<SudokuBoard(SudokuBoard, SudokuBoard)> mix;
         RepresentedBoard repBoard;
+        int fitnessValue = -1; // negative implies no fitness evaluation attempted. Don't try to compare without evaluation
         AbstractBoard(function<int(SudokuBoard)> fit, function<SudokuBoard(SudokuBoard)> mut, 
                         function<SudokuBoard(SudokuBoard, SudokuBoard)> cross, RepresentedBoard board) 
                         : fitness(fit), mutate(mut), mix(cross), repBoard(board){}
-
+        AbstractBoard(){}
         AbstractBoard sample() {
             //returns a NEW AbstractBoard with a mutated board (as per the given mutation function)
             // MUST be a valid board
@@ -52,13 +53,13 @@ class AbstractBoard{
             repBoard.base.print();
             bool validSudoku = repBoard.base.checkValid();
             bool validRep = repBoard.validate(repBoard.base);
-            int fitness = getFitness();
+            int fitnessVal = getFitness();
             cout << "\n Validity = ";
             cout << validSudoku;
             cout << " Valid representation ";
             cout << validRep;
             cout << "\n Fitness = ";
-            cout << fitness;
+            cout << fitnessVal;
             cout << "\n";
         }
 };
