@@ -1,6 +1,6 @@
-#include "class_sudoku.cpp"
+#include "class_sudoku.hpp"
 #include "board_loader.cpp"
-#include "brute_force.cpp"
+#include "algorithm_brute_force.cpp"
 #include <ctime>
 #include <cstdlib>
 #include <vector>
