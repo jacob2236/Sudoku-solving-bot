@@ -1,5 +1,5 @@
-#include "class_sudoku_possibilities.cpp"
-#include "class_abstract_board.cpp"
+#include "algorithm_tabu_search.hpp"
+#include "class_abstract_board.hpp"
 #include <deque>
 #include <array>
 

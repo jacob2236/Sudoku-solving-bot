@@ -1,9 +1,7 @@
-#include "class_abstract_board.cpp"
+#include "algorithm_genetic.hpp"
 
-struct Coordinate {
-    int row, col,num;
-    Coordinate(int r, int c, int num) : row(r), col(c), num(num) {}
-};
+Coordinate::Coordinate(int r, int c, int num) : row(r), col(c), num(num) {}
+
 
 void merge(AbstractBoard gen[], int left, 
                      int mid, int right){
@@ -67,7 +65,7 @@ void mergeSort(AbstractBoard gen[], int left, int right){
 }
 
 int roulettePick(const std::vector<double>& cumWeights) {
-    double choice = (rand() % 10000) / 10000; // random %
+    double choice = (rand() % 10000) / 10000.0; // random %
     choice = choice * cumWeights.back(); // random val between 0 and the max weight
     auto it = std::lower_bound(cumWeights.begin(), cumWeights.end(), choice);
     return int(it - cumWeights.begin());
@@ -124,7 +122,7 @@ AbstractBoard geneticAlgorithm(AbstractBoard inputBoard, int maxIter, double mut
             int randnum2 = 0;
             AbstractBoard temp1,temp2;
             for (int i=quarter_samples;i<num_of_samples;i++) {
-                double random = (rand() % 1000) / 1000;
+                double random = (rand() % 1000) / 1000.0;
                 if (random < crossover_percentage) {
                     randnum1 = roulettePick(cumW);
                     randnum2 = roulettePick(cumW);
@@ -147,7 +145,7 @@ AbstractBoard geneticAlgorithm(AbstractBoard inputBoard, int maxIter, double mut
             // mutation function takes all the samples and mutates them according to a percentage
             // we can give and edit the value of
             for (int i=quarter_samples;i<num_of_samples;i++) {
-                double random = (rand() % 1000) / 1000;
+                double random = (rand() % 1000) / 1000.0;
                 if(random < mutate_percentage) {
                     generation[i] = generation[i].sample();
                 }
@@ -157,14 +155,14 @@ AbstractBoard geneticAlgorithm(AbstractBoard inputBoard, int maxIter, double mut
 
     if (generation[0].fitness == 0) {
         cout << "Board solved!\trial";
-        generation[0].print();
+        return generation[0];
     }
 
     
 
 
 
-    
+    return generation[0];
 
 
 

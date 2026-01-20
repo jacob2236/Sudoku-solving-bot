@@ -1,6 +1,4 @@
-#include "class_sudoku.cpp"
-#include <set>
-#include <functional>
+#include "fitness_functions.hpp"
 /* This contains all fitness functions which can be passed into an abstract board
     All of these take a normal SudokuBoard and return an int representing fitness
     For consistency's sake, all fitness functions should be MINIMIZING 

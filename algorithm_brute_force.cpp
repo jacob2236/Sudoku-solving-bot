@@ -1,11 +1,12 @@
-#include "class_sudoku.h"
-#include "class_abstract_board.cpp"
+#include "class_sudoku.hpp"
+#include "algorithm_brute_force.hpp"
+#include "class_abstract_board.hpp"
 
 /* To compare metaheuristics we should have a very simple heuristic example to compare off of.
 Some of these algorithms give poor results or appear poorly suited for sudoku.
 It would be valuable to see which are better or worse than brute-force checking for duplicates.*/
 
-SudokuBoard bruteForce(SudokuBoard board) {
+SudokuBoard oldBruteForce(SudokuBoard board) {
     for(int row = 0; row <9; row++) {
         for(int col = 0; col <9; col++) {
             //search in row-major order for the first empty cell
@@ -17,7 +18,7 @@ SudokuBoard bruteForce(SudokuBoard board) {
                         continue; // don't recurse if we know this cell's bad.
                     }
                     //recurse to solve other blank spaces
-                    SudokuBoard potential = bruteForce(board);
+                    SudokuBoard potential = oldBruteForce(board);
                     //if any board down the line returns a valid board, pass it upwards!
                     if(potential.checkValid()) {
                         return potential;

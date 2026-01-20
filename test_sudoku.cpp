@@ -1,14 +1,13 @@
 #include <iostream>
-#include "class_sudoku.cpp"
-#include "class_sudoku_possibilities.cpp"
-#include "board_loader.cpp"
-#include "brute_force.cpp"
-#include "tabu_search.cpp"
-#include "class_abstract_board.cpp"
-#include "mutation_functions.cpp"
-#include "fitness_functions.cpp"
-#include "class_represented_alldifferent.cpp"
-#include "crossover_functions.cpp"
+#include "class_sudoku.hpp"
+#include "board_loader.hpp"
+#include "algorithm_brute_force.hpp"
+#include "algorithm_tabu_search.hpp"
+#include "class_abstract_board.hpp"
+#include "mutation_functions.hpp"
+#include "fitness_functions.hpp"
+#include "class_represented_alldifferent.hpp"
+#include "crossover_functions.hpp"
 using namespace std;
 
 
@@ -65,15 +64,16 @@ int main() {
     clock_t start, end;
 
     for (int trial=1;trial<=num_trials_per_board;trial++) {
-        const std::clock_t c_start = std::clock();
+        clock_t c_start = clock();
         start = clock();
 
         // DO tests
+        AbstractBoard test;
 
         end = clock();
         double time_taken = double(end - start);
         cout << "Attempt #" << trial << "\trial";
-        cout << "Best fitness: " << generation[0].fitness << "\trial";
+        cout << "Best fitness: " << test.getFitness() << "\trial";
         cout << "Time(CPU ticks): " << time_taken << "\trial";
         cout << "--------------------------------------\trial";
     }

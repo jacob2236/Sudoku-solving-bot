@@ -1,4 +1,5 @@
-#include "class_sudoku.h"
+#include "class_sudoku.hpp"
+#include "board_loader.hpp"
 #include <fstream>
 
 /* Code to read boards from a given dataset and turn them into SudokuBoard objects
@@ -6,10 +7,7 @@
    And maybe hardest 1905 11+, which is purported to contain puzzles deemed by a broader Sudoku community to be extremely difficult
 */
 
-//Total number of boards per sudoku dataset
-int puzzle01MaxSize = 1000000;
-int puzzle2MaxSize = 49158;
-int puzzle5MaxSize = 48766;
+
 
 SudokuBoard getSpecificBoard(int index){
     ifstream fileReader("data/puzzles1_unbiased"); //instantiate a read-only filereader to only read the file

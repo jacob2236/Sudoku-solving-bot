@@ -1,4 +1,4 @@
-#include "class_sudoku.cpp"
+#include "mutation_functions.hpp"
 #include <set>
 /* This should contain all mutation functions for easy include accessing
 An abstract mutator function exists as a blueprint/pseudocode 

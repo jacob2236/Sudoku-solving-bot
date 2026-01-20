@@ -1,4 +1,4 @@
-#include "class_sudoku.cpp"
+#include "crossover_functions.hpp"
 
 // filler for algos that don't crossover
 SudokuBoard dummy (const SudokuBoard &first, const SudokuBoard &second) {
