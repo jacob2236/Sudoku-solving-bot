@@ -1,7 +1,4 @@
-#include "class_sudoku.cpp"
-#include <set>
-using namespace std;
-#pragma once
+
 
 /* A representation of the Sudokuboard that comes with a list of possible digits for each empty cell.
 Useful for algorithms that solve boards by building up a solution rather than generating random solutions.*/
