@@ -3,3 +3,4 @@ test_sudoku
 .exe
 genetic_sudoku
 build
+test_sudoku.cpp
