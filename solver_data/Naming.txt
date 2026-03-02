@@ -1,0 +1,22 @@
+There's a lot of variations to try and it'd be hard to keep it all remotely legible
+So I won't really. Names will be structured as follows:
+ALgorithm-Fitness-Mutation-Crossover-Constraints-Boards
+Algorithms:
+GA - Genetic Algorithm
+BF - Brute Force 
+TS - Tabu Search
+Fitness functions:
+CC - countConflicts()
+CP - countPossibilities()
+Mutation:
+Poss - fillPossibilitiesOrRemove()
+Fill - fillOrRemove()
+Crossover:
+rowWise - rowWiseCrossover()
+Constraints:
+NA - no constraints
+Boards:
+R - Random
+17 - Random 17 hints
+H - Random hard
+
