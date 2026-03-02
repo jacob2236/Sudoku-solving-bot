@@ -13,5 +13,5 @@ void merge(AbstractBoard gen[], int left,
 
 void mergeSort(AbstractBoard gen[], int left, int right);
 int roulettePick(const std::vector<double>& cumWeights);
-AbstractBoard geneticAlgorithm(AbstractBoard inputBoard, int maxIter, double mutationChance, double crossoverChance);
+AbstractBoard geneticAlgorithm(AbstractBoard inputBoard, double mutationChance, double crossoverChance);
 #endif

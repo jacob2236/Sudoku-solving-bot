@@ -24,18 +24,21 @@ AbstractBoard AbstractBoard::sample() {
 }
 
 int AbstractBoard::getFitness() {
+    if (fitnessValue > -1) {
+        return fitnessValue; // fitness value already calculated, don't do it a second time
+    }
     fitnessValue = fitness(repBoard.base);
     return fitnessValue;
 }
 
 AbstractBoard AbstractBoard::crossover(AbstractBoard otherBoard) {
     // like sample but using the crossover function
-    bool invalid = true;
+    bool valid = false;
     SudokuBoard mutableCopy = repBoard.base;
     do {
         mutableCopy = mix(repBoard.base, otherBoard.repBoard.base);
-        invalid = repBoard.validate(mutableCopy);
-    } while (invalid);
+        valid = repBoard.validate(mutableCopy);
+    } while (!valid);
     auto newBoard = repBoard.newRep(mutableCopy); //TODO Repboard typing!!!
     return AbstractBoard(fitness, mutate, mix, newBoard);
 }

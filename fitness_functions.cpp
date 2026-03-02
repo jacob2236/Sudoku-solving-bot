@@ -1,4 +1,6 @@
 #include "fitness_functions.hpp"
+#include <ctime>
+#include <iostream>
 /* This contains all fitness functions which can be passed into an abstract board
     All of these take a normal SudokuBoard and return an int representing fitness
     For consistency's sake, all fitness functions should be MINIMIZING 
@@ -12,14 +14,20 @@ int countConflicts(SudokuBoard currentBoard) {
     auto getDuplicates = [&conflicts](int cells[9]) {
         set<int> foundDigits = {};
         for(int i = 0; i < 9; i++) {
+            
             int digit = cells[i];
             foundDigits.insert(digit);
         }
         conflicts += 9 - foundDigits.size();
     };
+
     currentBoard.forEachRow(getDuplicates);
+
+
     currentBoard.forEachCol(getDuplicates);
+    //cout << "\nMost of the fitness eval takes: " << double(end - start);
     currentBoard.forEachGroup(getDuplicates);
+    //cout << "\nOne fitness eval takes: " << double(end -start);
     return conflicts;
 }
 

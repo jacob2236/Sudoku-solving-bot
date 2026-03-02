@@ -34,6 +34,11 @@ array<int, 3> getDifference(AbstractBoard& newBoard, AbstractBoard& original) {
             }
         }
     }
+    array<int, 3> emptyArray;
+    emptyArray[0] = -1;
+    emptyArray[1] = -1;
+    emptyArray[2] = -1;
+    return emptyArray;
 }
 
 int globalTabuLength;

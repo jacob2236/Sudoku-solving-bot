@@ -13,8 +13,8 @@ RepresentedRowConsistent::RepresentedRowConsistent(){
 };
 
 // Called when creating a mutated sample of the board. 
-// returns NULL POINTER to reject the mutation if it unfixably breaks the board or representation
-// returns the board if no changes are needed or mild corrections could be completed
+// returns false to reject the mutation
+// modifies the board if its in error.
 bool RepresentedRowConsistent::validate(SudokuBoard &newBoard){
 
     // check if givens are valid first
@@ -39,12 +39,11 @@ bool RepresentedRowConsistent::validate(SudokuBoard &newBoard){
         }
 
         //replace invalid digits with valid ones. 
-        set<int> missingDigits ={};
-        for (int i = 0; i < 9; i++) {
-            if (!foundDigits.count(i)) {
-                int col = *invalids.begin();
-                newBoard.board[row][col] = i;
-                invalids.erase(col);
+        for (int i = 0; i < 9; i++) {// for each digit
+            if (!foundDigits.count(i)) { // if it's not found in the row
+                int col = *invalids.begin(); // find the first cell in the row with a bad digit
+                newBoard.board[row][col] = i; // put the digit in that spot
+                invalids.erase(col); // take the cell out of the set of invalid cells
             }
         }
 

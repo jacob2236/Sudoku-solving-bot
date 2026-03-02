@@ -2,6 +2,7 @@
 #include <functional>
 #include <array>
 #include "class_sudoku.hpp"
+#include <ctime>
 using namespace std;
 
 
@@ -219,20 +220,39 @@ void SudokuBoard::forEachCol(function<void(int[9])> func) {
 }
 
 void SudokuBoard::forEachGroup(function<void(int[9])> func) {
+    
     for(int top = 0; top < 9; top += 3){
         for(int left = 0; left < 9; left += 3){
             // Collapse each group into a nine-item array reading left to right top to bottom
             int group[9];
             int index = 0;
-            for(int row; row < 3; row++) {
+            clock_t start = clock();
+            for(int row = 0; row < 3; row++) {
+                
                 for(int col; col < 3; col++) {
                     group[index] = board[top+row][left+col];
                     index++;
+                    
                 }
+                
             }
+            clock_t end = clock();
+            //cout << "\nA group takes: " << double(end - start);
+            
+            
+            
+            
+            
             func(group);
+            
+            
         }
+        
+        
     }
+    
+    
+    
 }
 
 // Similar to ForEachGroup but finds the group responsible for the given row/col pair 

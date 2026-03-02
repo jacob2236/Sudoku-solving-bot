@@ -1,4 +1,6 @@
 #include "algorithm_genetic.hpp"
+#include <ctime>
+#include <iostream>
 
 Coordinate::Coordinate(int r, int c, int num) : row(r), col(c), num(num) {}
 
@@ -71,7 +73,7 @@ int roulettePick(const std::vector<double>& cumWeights) {
     return int(it - cumWeights.begin());
 }
 
-AbstractBoard geneticAlgorithm(AbstractBoard inputBoard, int maxIter, double mutationChance, double crossoverChance){
+AbstractBoard geneticAlgorithm(AbstractBoard inputBoard, double mutationChance, double crossoverChance){
     int num_of_samples = 1000; // number of samples per generation
     int num_of_generations = 100; // future use for how many times we want to run generations
     AbstractBoard generation[num_of_samples]; // size of generation can change based on our input
@@ -85,35 +87,40 @@ AbstractBoard geneticAlgorithm(AbstractBoard inputBoard, int maxIter, double mut
     
 
 
-
-        // board generation for the very first generation
-        for (int i=0;i < num_of_samples;i++) {
-            generation[i] = inputBoard.sample();
-        }
+       
+    // board generation for the very first generation
+    for (int i=0;i < num_of_samples;i++) {    
+        generation[i] = inputBoard.sample();
+    }
+        
 
         // running number of generations
         for (int i=0;i<num_of_generations;i++) {
             // assigning fitness and sorting
+            
             for (int i=0;i < num_of_samples;i++) {
                 generation[i].getFitness();
+                
             }
+            
             mergeSort(generation, 0, num_of_samples - 1);
+            
 
             // weights = 1/(1+errors)
+            
             std::vector<double> weights(num_of_samples);
             double sumW = 0.0;
-            for (int i=0;i<num_of_samples;i++){
+            for (int i = 0; i < num_of_samples; i++){
                 weights[i] = 1.0 / (1.0 + generation[i].fitnessValue);
                 sumW += weights[i];
             }
             std::vector<double> cumW(num_of_samples);
             double acc = 0;
-            for (int i=0;i<num_of_samples;i++){
+            for (int i = 0; i < num_of_samples; i++){
                 acc += weights[i];
                 cumW[i] = acc;
             }
-
-
+            
             // crossover, keeping first half of original generation while crossing the 
             // third 25% with the final 25%
             int half_samples = num_of_samples/2;
@@ -135,13 +142,12 @@ AbstractBoard geneticAlgorithm(AbstractBoard inputBoard, int maxIter, double mut
 
                 }
             }
-
-
+            
             for (int i=0;i < num_of_samples;i++) {
                 generation[i].getFitness();
             }
             mergeSort(generation, 0, num_of_samples - 1);
-
+            
             // mutation function takes all the samples and mutates them according to a percentage
             // we can give and edit the value of
             for (int i=quarter_samples;i<num_of_samples;i++) {
@@ -150,11 +156,12 @@ AbstractBoard geneticAlgorithm(AbstractBoard inputBoard, int maxIter, double mut
                     generation[i] = generation[i].sample();
                 }
             }
+            
         } 
     
 
     if (generation[0].fitness == 0) {
-        cout << "Board solved!\trial";
+        cout << "Board solved! trial";
         return generation[0];
     }
 
